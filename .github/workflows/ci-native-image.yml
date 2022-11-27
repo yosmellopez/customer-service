@@ -29,11 +29,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@d0651293c4a5a52e711f25b41b05b2212f385d28
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@05b148adc31e091bafbaf404f745055d4d3bc9d2
-        with:
-          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+#      - name: Configure AWS credentials
+#        uses: aws-actions/configure-aws-credentials@05b148adc31e091bafbaf404f745055d4d3bc9d2
+#        with:
+#          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+#          aws-region: ${{ secrets.AWS_REGION }}
           
       - uses: graalvm/setup-graalvm@01b9840538b867061986ea406d1b79c91a701d17
         with:
@@ -47,7 +47,7 @@ jobs:
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
           echo "JAVA_HOME: $JAVA_HOME"
-          echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
+#          echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
           java --version
           gu --version
           native-image --version
